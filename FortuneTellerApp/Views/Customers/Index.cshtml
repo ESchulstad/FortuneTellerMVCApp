@@ -1,0 +1,67 @@
+﻿@model IEnumerable<FortuneTellerApp.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Fortune
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Month.MonthName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sibling.SiblingCount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+        @Html.ActionLink("View", "Details", new { id = item.CustomerId }, new { @class = "btn btn-primary"})
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Month.MonthName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sibling.SiblingCount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CustomerId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CustomerId })
+        </td>
+    </tr>
+}
+
+</table>
